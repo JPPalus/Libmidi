@@ -8,11 +8,11 @@ After the script has been loaded, you determine the audio method that will be us
 
 MIDIjs.get_audio_status()
 
-Possible answers are "WebAudioAPI" in case the W3C Web Audio API is supported, <bgsound> for Microsoft Internet Explorer or <object> for all other browsers that do not support the W3C Web Audio API. 
+Possible answers are "WebAudioAPI" in case the W3C Web Audio API is supported, \<bgsound\> for Microsoft Internet Explorer or \<object\> for all other browsers that do not support the W3C Web Audio API. 
 
-<bgsound> uses the Internet Explorer's internal MIDI player. 
+\<bgsound\> uses the Internet Explorer's internal MIDI player. 
 
-<object> looks for a plugin that can play MIDI files. If no such plugin is installed, the user will be prompted by his browser. Note: Apple's Quick Time plugin used to be a fairly good MIDI player. However, latest versions of it dropped the MIDI playback via object tag for unkown reasons.
+\<object\> looks for a plugin that can play MIDI files. If no such plugin is installed, the user will be prompted by his browser. Note: Apple's Quick Time plugin used to be a fairly good MIDI player. However, latest versions of it dropped the MIDI playback via object tag for unkown reasons.
 
 ## Get status and error messages
 
