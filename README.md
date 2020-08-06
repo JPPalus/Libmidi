@@ -1,5 +1,5 @@
 # libMIDI - API Description
-### A 100% JavaScript MIDI Player using W3C Web Audio
+## A 100% JavaScript MIDI Player using W3C Web Audio
 
 
 
@@ -8,7 +8,7 @@
 
 
 
-## Find out about the audio mode
+### Find out about the audio mode
 
 After the script has been loaded, you determine the audio method that will be used by libMIDI. A call to libMIDI.get_audio_status() will return a descriptive string.
 
@@ -22,7 +22,7 @@ Possible answers are "WebAudioAPI" in case the W3C Web Audio API is supported, \
 
 
 
-## Get status and error messages
+### Get status and error messages
 
 If you supply a callback you will get info and error messages about the player's status as soon as you start playing.
 
@@ -40,7 +40,7 @@ Set the function as message callback
 
 
 
-## Start playback
+### Start playback
 
 Calling play(url) will download the MIDI file from url, load the instruments used by this MIDI file and start playback.
 
@@ -48,7 +48,7 @@ Calling play(url) will download the MIDI file from url, load the instruments use
 
 
 
-## Cancel playback
+### Cancel playback
 
 Calling stop() will cancel the current playback.
 
@@ -56,7 +56,7 @@ Calling stop() will cancel the current playback.
 
 
 
-## Pause playback (Only works in browsers supporting WebAudio API. It doesn't have any effect in Microsoft's Internet Explorer.)
+### Pause playback (Only works in browsers supporting WebAudio API. It doesn't have any effect in Microsoft's Internet Explorer.)
 
 Calling pause() pauses playback. Playback may be resumed later on.
 
@@ -64,7 +64,7 @@ Calling pause() pauses playback. Playback may be resumed later on.
 
 
 
-## Resume playback (Only works in browsers supporting WebAudio API. It doesn't have any effect in Microsoft's Internet Explorer.)
+### Resume playback (Only works in browsers supporting WebAudio API. It doesn't have any effect in Microsoft's Internet Explorer.)
 
 Calling resume() will continue with playing a formerly paused playback.
 
@@ -72,7 +72,7 @@ Calling resume() will continue with playing a formerly paused playback.
 
 
 
-## Get duration of MIDI file (Does not work in Microsoft's Internet Explorer version 9 and below.)
+### Get duration of MIDI file (Does not work in Microsoft's Internet Explorer version 9 and below.)
 
 Calling get_duration(url, callback) will report the total playing time of url via the callback. For unsupported browsers (Microsofts's Internet Explorer version 9 and below) the callback will return -1.
 
@@ -84,7 +84,7 @@ Example for logging duration to browser's console:
 
 
 
-## Get player events
+### Get player events
 
 If you supply a callback you will receive permanently events during ongoing playbacks. Currently there is only the time in seconds available the current file has been playing.
 
@@ -102,7 +102,7 @@ The callback may be called every 100 ms. So be careful not to do any computation
 
 
 
-## FAQ
+### FAQ
 
     Q: Can I play multiple MIDI files at the same time?
     A: No. When calling libMIDI.play(url) any current playback is being stopped.
