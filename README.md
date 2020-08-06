@@ -2,17 +2,26 @@
 ### A 100% JavaScript MIDI Player using W3C Web Audio
 
 
+
+
+
+
+
+
+
 ## Find out about the audio mode
 
 After the script has been loaded, you determine the audio method that will be used by MIDIjs. A call to MIDIjs.get_audio_status() will return a descriptive string. 
 
-MIDIjs.get_audio_status()
+> MIDIjs.get_audio_status()
 
 Possible answers are "WebAudioAPI" in case the W3C Web Audio API is supported, \<bgsound\> for Microsoft Internet Explorer or \<object\> for all other browsers that do not support the W3C Web Audio API. 
 
 \<bgsound\> uses the Internet Explorer's internal MIDI player. 
 
 \<object\> looks for a plugin that can play MIDI files. If no such plugin is installed, the user will be prompted by his browser. Note: Apple's Quick Time plugin used to be a fairly good MIDI player. However, latest versions of it dropped the MIDI playback via object tag for unkown reasons.
+
+
 
 ## Get status and error messages
 
@@ -28,11 +37,15 @@ MIDIjs.message_callback = display_message;
 
 *Note: This callback will only fire if the W3C Web Audio API is supported.*
 
+
+
 ## Start playback
 
 Calling play(url) will download the MIDI file from url, load the instruments used by this MIDI file and start playback. 
 
  MIDIjs.play(url)
+
+
 
 ## Cancel playback
 
@@ -40,17 +53,23 @@ Calling stop() will cancel the current playback.
 
  MIDIjs.stop()
 
+
+
 ## Pause playback (Only works in browsers supporting WebAudio API. It doesn't have any effect in Microsoft's Internet Explorer.)
 
 Calling pause() pauses playback. Playback may be resumed later on.
 
  MIDIjs.pause()
 
+
+
 ## Resume playback (Only works in browsers supporting WebAudio API. It doesn't have any effect in Microsoft's Internet Explorer.)
 
 Calling resume() will continue with playing a formerly paused playback.
 
  MIDIjs.resume()
+
+
 
 ## Get duration of MIDI file (Does not work in Microsoft's Internet Explorer version 9 and below.)
 
@@ -61,6 +80,8 @@ Calling get_duration(url, callback) will report the total playing time of url vi
 Example for logging duration to browser's console:
 
  MIDIjs.get_duration("url", function(seconds) { console.log("Duration: " + seconds);} )
+
+
 
 ## Get player events
 
@@ -75,6 +96,8 @@ function display_time(ev) {
 MIDIjs.player_callback = display_mesage;
 
 The callback may be called every 100 ms. So be careful not to do any computationally heavy stuff in this callback. This will lead to quite some jitter.
+
+
 
 ## FAQ
 
