@@ -78,14 +78,14 @@ The callback may be called every 100 ms. So be careful not to do any computation
 
 ## FAQ
 
-    **Q**: Can I play multiple MIDI files at the same time?
-    **A**: No. When calling MIDIjs.play(url) any current playback is being stopped.
-    **Q**: Can I play a MIDI file automatically after loading the page?
-    **A**: Yes, except for iOS devices and Chrome since version 71. Believe it or not: The Web Audio API on these browsers will only start playing if called from within a user generated event. Loading the page does not count as such. Clicking a button or touching a link does. Test your browser with this Autoplay Demo.
-    **Q**: Can I use MIDIjs on HTTPS pages?
-    **A**: Yes, you can. However, Microsofts's Internet Explorer will produce a "Mixed secure/insecure content" warning, which has be acknowledged. Furthermore on HTTPS pages Internet Explorer will only play MIDI files that have been downloaded with HTTP (not HTTPS). Hm ...
-    **Q**: Using MIDIjs produces messages on the JavaScript console of my browser. Do they indicate a problem ?
-    **A**: No, the following two messages do not indicate a problem of any kind. You can safely ignore them.
-    1. pre-main prep time: x ms
-    2. The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page
+    Q: Can I play multiple MIDI files at the same time?
+    A: No. When calling MIDIjs.play(url) any current playback is being stopped.
+    Q: Can I play a MIDI file automatically after loading the page?
+    A: Yes, except for iOS devices and Chrome since version 71. Believe it or not: The Web Audio API on these browsers will only start playing if called from within a user generated event. Loading the page does not count as such. Clicking a button or touching a link does. Test your browser with this Autoplay Demo.
+    Q: Can I use MIDIjs on HTTPS pages?
+    A: Yes, you can. However, Microsofts's Internet Explorer will produce a "Mixed secure/insecure content" warning, which has be acknowledged. Furthermore on HTTPS pages Internet Explorer will only play MIDI files that have been downloaded with HTTP (not HTTPS). Hm ...
+    Q: Using MIDIjs produces messages on the JavaScript console of my browser. Do they indicate a problem ?
+    A: No, the following two messages do not indicate a problem of any kind. You can safely ignore them.
+        1. pre-main prep time: x ms
+        2. The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page
 
