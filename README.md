@@ -1,7 +1,7 @@
 # libMIDI - API Description
 ## A 100% JavaScript MIDI Player using W3C Web Audio
 
-
+-----
 
 
 
@@ -19,7 +19,7 @@ Possible answers are "WebAudioAPI" in case the W3C Web Audio API is supported, \
 \<bgsound\> uses the Internet Explorer's internal MIDI player. 
 
 \<object\> looks for a plugin that can play MIDI files. If no such plugin is installed, the user will be prompted by his browser. Note: Apple's Quick Time plugin used to be a fairly good MIDI player. However, latest versions of it dropped the MIDI playback via object tag for unkown reasons.
-
+-----
 
 
 ### Get status and error messages
@@ -38,7 +38,7 @@ Set the function as message callback
 
 *Note: This callback will only fire if the W3C Web Audio API is supported.*
 
-
+-----
 
 ### Start playback
 
@@ -47,14 +47,14 @@ Calling play(url) will download the MIDI file from url, load the instruments use
 >  libMIDI.play(url)
 
 
-
+-----
 ### Cancel playback
 
 Calling stop() will cancel the current playback.
 
 >  libMIDI.stop()
 
-
+-----
 
 ### Pause playback (Only works in browsers supporting WebAudio API. It doesn't have any effect in Microsoft's Internet Explorer.)
 
@@ -62,7 +62,7 @@ Calling pause() pauses playback. Playback may be resumed later on.
 
 >  libMIDI.pause()
 
-
+-----
 
 ### Resume playback (Only works in browsers supporting WebAudio API. It doesn't have any effect in Microsoft's Internet Explorer.)
 
@@ -70,7 +70,7 @@ Calling resume() will continue with playing a formerly paused playback.
 
 >  libMIDI.resume()
 
-
+-----
 
 ### Get duration of MIDI file (Does not work in Microsoft's Internet Explorer version 9 and below.)
 
@@ -82,7 +82,7 @@ Example for logging duration to browser's console:
 
 > libMIDI.get_duration("url", function(seconds) { console.log("Duration: " + seconds);} )
 
-
+-----
 
 ### Get player events
 
@@ -101,7 +101,7 @@ Set the function as player callback:
 The callback may be called every 100 ms. So be careful not to do any computationally heavy stuff in this callback. This will lead to quite some jitter.
 
 
-
+-----
 ### FAQ
 
     Q: Can I play multiple MIDI files at the same time?
