@@ -8,7 +8,6 @@
 
 
 
-
 ## Find out about the audio mode
 
 After the script has been loaded, you determine the audio method that will be used by libMIDI. A call to libMIDI.get_audio_status() will return a descriptive string.
