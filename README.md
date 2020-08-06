@@ -11,11 +11,11 @@
 
 ## Find out about the audio mode
 
-After the script has been loaded, you determine the audio method that will be used by MIDIjs. A call to MIDIjs.get_audio_status() will return a descriptive string. 
+After the script has been loaded, you determine the audio method that will be used by libMIDI. A call to libMIDI.get_audio_status() will return a descriptive string.
 
-> MIDIjs.get_audio_status()
+> libMIDI.get_audio_status()
 
-Possible answers are "WebAudioAPI" in case the W3C Web Audio API is supported, \<bgsound\> for Microsoft Internet Explorer or \<object\> for all other browsers that do not support the W3C Web Audio API. 
+Possible answers are "WebAudioAPI" in case the W3C Web Audio API is supported, \<bgsound\> for Microsoft Internet Explorer or \<object\> for all other browsers that do not support the W3C Web Audio API.
 
 \<bgsound\> uses the Internet Explorer's internal MIDI player. 
 
@@ -35,7 +35,7 @@ Define a function to handle status messages
 
 Set the function as message callback
 
-> MIDIjs.message_callback = display_message;
+> libMIDI.message_callback = display_message;
 
 *Note: This callback will only fire if the W3C Web Audio API is supported.*
 
@@ -43,9 +43,9 @@ Set the function as message callback
 
 ## Start playback
 
-Calling play(url) will download the MIDI file from url, load the instruments used by this MIDI file and start playback. 
+Calling play(url) will download the MIDI file from url, load the instruments used by this MIDI file and start playback.
 
->  MIDIjs.play(url)
+>  libMIDI.play(url)
 
 
 
@@ -53,7 +53,7 @@ Calling play(url) will download the MIDI file from url, load the instruments use
 
 Calling stop() will cancel the current playback.
 
->  MIDIjs.stop()
+>  libMIDI.stop()
 
 
 
@@ -61,7 +61,7 @@ Calling stop() will cancel the current playback.
 
 Calling pause() pauses playback. Playback may be resumed later on.
 
->  MIDIjs.pause()
+>  libMIDI.pause()
 
 
 
@@ -69,7 +69,7 @@ Calling pause() pauses playback. Playback may be resumed later on.
 
 Calling resume() will continue with playing a formerly paused playback.
 
->  MIDIjs.resume()
+>  libMIDI.resume()
 
 
 
@@ -77,11 +77,11 @@ Calling resume() will continue with playing a formerly paused playback.
 
 Calling get_duration(url, callback) will report the total playing time of url via the callback. For unsupported browsers (Microsofts's Internet Explorer version 9 and below) the callback will return -1.
 
-> MIDIjs.get_duration(url, callback)
+> libMIDI.get_duration(url, callback)
 
 Example for logging duration to browser's console:
 
-> MIDIjs.get_duration("url", function(seconds) { console.log("Duration: " + seconds);} )
+> libMIDI.get_duration("url", function(seconds) { console.log("Duration: " + seconds);} )
 
 
 
@@ -97,7 +97,7 @@ Define a function to handle player event:
 
 Set the function as player callback:
 
-> MIDIjs.player_callback = display_mesage;
+> libMIDI.player_callback = display_mesage;
 
 The callback may be called every 100 ms. So be careful not to do any computationally heavy stuff in this callback. This will lead to quite some jitter.
 
@@ -106,13 +106,12 @@ The callback may be called every 100 ms. So be careful not to do any computation
 ## FAQ
 
     Q: Can I play multiple MIDI files at the same time?
-    A: No. When calling MIDIjs.play(url) any current playback is being stopped.
+    A: No. When calling libMIDI.play(url) any current playback is being stopped.
     Q: Can I play a MIDI file automatically after loading the page?
     A: Yes, except for iOS devices and Chrome since version 71. Believe it or not: The Web Audio API on these browsers will only start playing if called from within a user generated event. Loading the page does not count as such. Clicking a button or touching a link does. Test your browser with this Autoplay Demo.
-    Q: Can I use MIDIjs on HTTPS pages?
+    Q: Can I use libMIDI on HTTPS pages?
     A: Yes, you can. However, Microsofts's Internet Explorer will produce a "Mixed secure/insecure content" warning, which has be acknowledged. Furthermore on HTTPS pages Internet Explorer will only play MIDI files that have been downloaded with HTTP (not HTTPS). Hm ...
-    Q: Using MIDIjs produces messages on the JavaScript console of my browser. Do they indicate a problem ?
+    Q: Using libMIDI produces messages on the JavaScript console of my browser. Do they indicate a problem ?
     A: No, the following two messages do not indicate a problem of any kind. You can safely ignore them.
         1. pre-main prep time: x ms
         2. The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page
-

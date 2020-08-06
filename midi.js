@@ -33,11 +33,11 @@
             j("Error: Cannot retrieve patch file " + n + t)
         }, i.onload = function() {
             if (200 != i.status) return void j("Error: Cannot retrieve patch filee " + n + t + " : " + i.status);
-            if (num_missing--, FS.createDataFile("pat/", t, new Int8Array(i.response), !0, !0), MIDIjs.message_callback && num_missing > 0 && MIDIjs.message_callback("Loading instruments: " + num_missing), j("Loading instruments: " + num_missing), 0 == num_missing) {
+            if (num_missing--, FS.createDataFile("pat/", t, new Int8Array(i.response), !0, !0), libMIDI.message_callback && num_missing > 0 && libMIDI.message_callback("Loading instruments: " + num_missing), j("Loading instruments: " + num_missing), 0 == num_missing) {
                 stream = Module.ccall("mid_istream_open_mem", "number", ["number", "number", "number"], [x, midiFileArray.length, !1]);
                 var o = 32784,
                     a = Module.ccall("mid_create_options", "number", ["number", "number", "number", "number"], [E.sampleRate, o, 1, 2 * N]);
-                L = Module.ccall("mid_song_load", "number", ["number", "number"], [stream, a]), rval = Module.ccall("mid_istream_close", "number", ["number"], [stream]), Module.ccall("mid_song_start", "void", ["number"], [L]), P = E.createScriptProcessor(N, 0, 1), w = Module._malloc(2 * N), P.onaudioprocess = r, P.connect(E.destination), C = setInterval(s, q), MIDIjs.message_callback && MIDIjs.message_callback("Playing: " + e), j("Playing: " + e + " ...")
+                L = Module.ccall("mid_song_load", "number", ["number", "number"], [stream, a]), rval = Module.ccall("mid_istream_close", "number", ["number"], [stream]), Module.ccall("mid_song_start", "void", ["number"], [L]), P = E.createScriptProcessor(N, 0, 1), w = Module._malloc(2 * N), P.onaudioprocess = r, P.connect(E.destination), C = setInterval(s, q), libMIDI.message_callback && libMIDI.message_callback("Playing: " + e), j("Playing: " + e + " ...")
             }
         }, i.send()
     }
@@ -51,7 +51,7 @@
 
     function s() {
         var e = new Object;
-        0 != F ? e.time = E.currentTime - F : e.time = 0, MIDIjs.player_callback && MIDIjs.player_callback(e)
+        0 != F ? e.time = E.currentTime - F : e.time = 0, libMIDI.player_callback && libMIDI.player_callback(e)
     }
 
     function u(e) {
@@ -70,7 +70,7 @@
     }
 
     function c(e) {
-        j("Loading MIDI file " + e + " ..."), MIDIjs.message_callback("Loading MIDI file " + e + " ...");
+        j("Loading MIDI file " + e + " ..."), libMIDI.message_callback("Loading MIDI file " + e + " ...");
         var n = new XMLHttpRequest;
         n.open("GET", e, !0), n.responseType = "arraybuffer", n.onerror = function() {
             j("Error: Cannot retrieve MIDI file " + e)
@@ -83,7 +83,7 @@
                 for (var a = 0; a < num_missing; a++) {
                     var u = Module.ccall("mid_song_get_missing_instrument", "string", ["number", "number"], [L, a]);
                     o(e, B + "pat/", u)
-                } else Module.ccall("mid_song_start", "void", ["number"], [L]), P = E.createScriptProcessor(N, 0, 1), w = Module._malloc(2 * N), P.onaudioprocess = r, P.connect(E.destination), C = setInterval(s, q), MIDIjs.message_callback && MIDIjs.message_callback("Playing: " + e), j("Playing: " + e + " ...")
+                } else Module.ccall("mid_song_start", "void", ["number"], [L]), P = E.createScriptProcessor(N, 0, 1), w = Module._malloc(2 * N), P.onaudioprocess = r, P.connect(E.destination), C = setInterval(s, q), libMIDI.message_callback && libMIDI.message_callback("Playing: " + e), j("Playing: " + e + " ...")
         }, n.send()
     }
 
@@ -92,7 +92,7 @@
     }
 
     function d() {
-        MIDIjs.noteOn(0, 60, 0)
+        libMIDI.noteOn(0, 60, 0)
     }
 
     function f() {
@@ -116,7 +116,7 @@
 
     function I() {
         var e = new Object;
-        0 == F && (F = (new Date).getTime()), e.time = ((new Date).getTime() - F) / 1e3, MIDIjs.player_callback && MIDIjs.player_callback(e)
+        0 == F && (F = (new Date).getTime()), e.time = ((new Date).getTime() - F) / 1e3, libMIDI.player_callback && libMIDI.player_callback(e)
     }
 
     function M(e) {
@@ -178,19 +178,19 @@
         q = 30;
     // B = h();
     var G = n();
-    e.MIDIjs = new Object;
-    e.MIDIjs.initAll = function(){
+    e.libMIDI = new Object;
+    e.libMIDI.initAll = function(){
         try {
             ("iPhone" == G.platform || "iPod" == G.platform || "iPad" == G.platform) && G.majorVersion <= 6 ? A = "none" : (window.AudioContext = window.AudioContext || window.webkitAudioContext, E = new AudioContext, A = "WebAudioAPI")
         } catch (W) {
             A = "Microsoft Internet Explorer" == G.browserName ? "bgsound" : "Android" == G.browserName ? "none" : "object"
         };
-        e.MIDIjs.set_logging = function(e) {
+        e.libMIDI.set_logging = function(e) {
             R = e
-        }, e.MIDIjs.get_loggging = function() {
+        }, e.libMIDI.get_loggging = function() {
             return R
-        }, e.MIDIjs.player_callback = function(e) {}, e.MIDIjs.message_callback = function(e) {}, e.MIDIjs.get_audio_status = function() {
+        }, e.libMIDI.player_callback = function(e) {}, e.libMIDI.message_callback = function(e) {}, e.libMIDI.get_audio_status = function() {
             return V
-        }, e.MIDIjs.unmute_iOS_hack = a, "WebAudioAPI" == A ? (e.MIDIjs.play = u, e.MIDIjs.stop = b, V = "audioMethod: WebAudioAPI, sampleRate (Hz): " + E.sampleRate + ", audioBufferSize (Byte): " + N, e.MIDIjs.noteOn = m, e.MIDIjs.startSynth = d) : "bgsound" == A ? (e.MIDIjs.play = M, e.MIDIjs.stop = v, V = "audioMethod: &lt;bgsound&gt;") : "object" == A ? (e.MIDIjs.play = _, e.MIDIjs.stop = y, V = "audioMethod: &lt;object&gt;") : (e.MIDIjs.play = function(e) {}, e.MIDIjs.stop = function(e) {}, V = "audioMethod: No method found"), "Microsoft Internet Explorer" == G.browserName && "https:" == location.protocol.toLowerCase() && M("http://" + B + "midi/silence.mid")
+        }, e.libMIDI.unmute_iOS_hack = a, "WebAudioAPI" == A ? (e.libMIDI.play = u, e.libMIDI.stop = b, V = "audioMethod: WebAudioAPI, sampleRate (Hz): " + E.sampleRate + ", audioBufferSize (Byte): " + N, e.libMIDI.noteOn = m, e.libMIDI.startSynth = d) : "bgsound" == A ? (e.libMIDI.play = M, e.libMIDI.stop = v, V = "audioMethod: &lt;bgsound&gt;") : "object" == A ? (e.libMIDI.play = _, e.libMIDI.stop = y, V = "audioMethod: &lt;object&gt;") : (e.libMIDI.play = function(e) {}, e.libMIDI.stop = function(e) {}, V = "audioMethod: No method found"), "Microsoft Internet Explorer" == G.browserName && "https:" == location.protocol.toLowerCase() && M("http://" + B + "midi/silence.mid")
     }
 }(this);
