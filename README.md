@@ -27,13 +27,15 @@ Possible answers are "WebAudioAPI" in case the W3C Web Audio API is supported, \
 
 If you supply a callback you will get info and error messages about the player's status as soon as you start playing.
 
-// Define a function to handle status messages
-function display_message(mes) {
-     my_message_div.innerHTML = mes;
-};
+Define a function to handle status messages
 
-// Set the function as message callback
-MIDIjs.message_callback = display_message;
+> function display_message(mes) {
+>      my_message_div.innerHTML = mes;
+> };
+
+Set the function as message callback
+
+> MIDIjs.message_callback = display_message;
 
 *Note: This callback will only fire if the W3C Web Audio API is supported.*
 
@@ -73,13 +75,13 @@ Calling resume() will continue with playing a formerly paused playback.
 
 ## Get duration of MIDI file (Does not work in Microsoft's Internet Explorer version 9 and below.)
 
-Calling get_duration(url, callback) will report the total playing time of url via the callback. For unsupported browsers (Microsofts's Internet Explorer version 9 and below) the callback will return -1
+Calling get_duration(url, callback) will report the total playing time of url via the callback. For unsupported browsers (Microsofts's Internet Explorer version 9 and below) the callback will return -1.
 
-MIDIjs.get_duration(url, callback)
+> MIDIjs.get_duration(url, callback)
 
 Example for logging duration to browser's console:
 
-MIDIjs.get_duration("url", function(seconds) { console.log("Duration: " + seconds);} )
+> MIDIjs.get_duration("url", function(seconds) { console.log("Duration: " + seconds);} )
 
 
 
@@ -87,13 +89,15 @@ MIDIjs.get_duration("url", function(seconds) { console.log("Duration: " + second
 
 If you supply a callback you will receive permanently events during ongoing playbacks. Currently there is only the time in seconds available the current file has been playing.
 
-// Define a function to handle player events
-function display_time(ev) {
-     my_time_div.innerHTML = ev.time; // time in seconds, since start of playback
-};
+Define a function to handle player event:
 
-// Set the function as player callback
-MIDIjs.player_callback = display_mesage;
+> function display_time(ev) {
+>      my_time_div.innerHTML = ev.time; // time in seconds, since start of playback
+> };
+
+Set the function as player callback:
+
+> MIDIjs.player_callback = display_mesage;
 
 The callback may be called every 100 ms. So be careful not to do any computationally heavy stuff in this callback. This will lead to quite some jitter.
 
