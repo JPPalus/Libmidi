@@ -43,7 +43,7 @@ MIDIjs.message_callback = display_message;
 
 Calling play(url) will download the MIDI file from url, load the instruments used by this MIDI file and start playback. 
 
- MIDIjs.play(url)
+>  MIDIjs.play(url)
 
 
 
@@ -51,7 +51,7 @@ Calling play(url) will download the MIDI file from url, load the instruments use
 
 Calling stop() will cancel the current playback.
 
- MIDIjs.stop()
+>  MIDIjs.stop()
 
 
 
@@ -59,7 +59,7 @@ Calling stop() will cancel the current playback.
 
 Calling pause() pauses playback. Playback may be resumed later on.
 
- MIDIjs.pause()
+>  MIDIjs.pause()
 
 
 
@@ -67,7 +67,7 @@ Calling pause() pauses playback. Playback may be resumed later on.
 
 Calling resume() will continue with playing a formerly paused playback.
 
- MIDIjs.resume()
+>  MIDIjs.resume()
 
 
 
@@ -75,11 +75,11 @@ Calling resume() will continue with playing a formerly paused playback.
 
 Calling get_duration(url, callback) will report the total playing time of url via the callback. For unsupported browsers (Microsofts's Internet Explorer version 9 and below) the callback will return -1
 
- MIDIjs.get_duration(url, callback)
+MIDIjs.get_duration(url, callback)
 
 Example for logging duration to browser's console:
 
- MIDIjs.get_duration("url", function(seconds) { console.log("Duration: " + seconds);} )
+MIDIjs.get_duration("url", function(seconds) { console.log("Duration: " + seconds);} )
 
 
 
