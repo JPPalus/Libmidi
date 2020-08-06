@@ -19,9 +19,8 @@ Possible answers are "WebAudioAPI" in case the W3C Web Audio API is supported, \
 \<bgsound\> uses the Internet Explorer's internal MIDI player. 
 
 \<object\> looks for a plugin that can play MIDI files. If no such plugin is installed, the user will be prompted by his browser. Note: Apple's Quick Time plugin used to be a fairly good MIDI player. However, latest versions of it dropped the MIDI playback via object tag for unkown reasons.
+
 -----
-
-
 ### Get status and error messages
 
 If you supply a callback you will get info and error messages about the player's status as soon as you start playing.
