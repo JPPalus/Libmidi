@@ -12375,6 +12375,47 @@ function _reset_controllers($0,$1) {
  HEAPF32[$28>>2] = 0.0; //@line 77 "playmidi.c"
  STACKTOP = sp;return; //@line 78 "playmidi.c"
 }
+function _mid_song_get_total_time($0) {
+ $0 = $0|0;
+ var $1 = 0, $10 = 0, $11 = 0, $12 = 0, $13 = 0, $14 = 0, $15 = 0, $16 = 0, $17 = 0, $18 = 0, $19 = 0, $2 = 0, $20 = 0, $21 = 0, $22 = 0, $23 = 0, $24 = 0, $25 = 0, $26 = 0, $27 = 0;
+ var $28 = 0, $29 = 0, $3 = 0, $30 = 0, $31 = 0, $32 = 0, $4 = 0, $5 = 0, $6 = 0, $7 = 0, $8 = 0, $9 = 0, label = 0, sp = 0;
+ sp = STACKTOP;
+ STACKTOP = STACKTOP + 16|0; if ((STACKTOP|0) >= (STACK_MAX|0)) abortStackOverflow(16|0);
+ $1 = $0;
+ $4 = $1; //@line 743 "playmidi.c"
+ $5 = ((($4)) + 13100|0); //@line 743 "playmidi.c"
+ $6 = HEAP32[$5>>2]|0; //@line 743 "playmidi.c"
+ $7 = (($6) - 1)|0; //@line 743 "playmidi.c"
+ $8 = $1; //@line 743 "playmidi.c"
+ $9 = ((($8)) + 13076|0); //@line 743 "playmidi.c"
+ $10 = HEAP32[$9>>2]|0; //@line 743 "playmidi.c"
+ $11 = (($10) + ($7<<3)|0); //@line 743 "playmidi.c"
+ $2 = $11; //@line 743 "playmidi.c"
+ $12 = $2; //@line 745 "playmidi.c"
+ $13 = HEAP32[$12>>2]|0; //@line 745 "playmidi.c"
+ $14 = $1; //@line 745 "playmidi.c"
+ $15 = ((($14)) + 4|0); //@line 745 "playmidi.c"
+ $16 = HEAP32[$15>>2]|0; //@line 745 "playmidi.c"
+ $17 = (($13|0) / ($16|0))&-1; //@line 745 "playmidi.c"
+ $18 = ($17*1000)|0; //@line 745 "playmidi.c"
+ $3 = $18; //@line 745 "playmidi.c"
+ $19 = $2; //@line 746 "playmidi.c"
+ $20 = HEAP32[$19>>2]|0; //@line 746 "playmidi.c"
+ $21 = $1; //@line 746 "playmidi.c"
+ $22 = ((($21)) + 4|0); //@line 746 "playmidi.c"
+ $23 = HEAP32[$22>>2]|0; //@line 746 "playmidi.c"
+ $24 = (($20|0) % ($23|0))&-1; //@line 746 "playmidi.c"
+ $25 = ($24*1000)|0; //@line 746 "playmidi.c"
+ $26 = $1; //@line 746 "playmidi.c"
+ $27 = ((($26)) + 4|0); //@line 746 "playmidi.c"
+ $28 = HEAP32[$27>>2]|0; //@line 746 "playmidi.c"
+ $29 = (($25|0) / ($28|0))&-1; //@line 746 "playmidi.c"
+ $30 = $3; //@line 746 "playmidi.c"
+ $31 = (($30) + ($29))|0; //@line 746 "playmidi.c"
+ $3 = $31; //@line 746 "playmidi.c"
+ $32 = $3; //@line 747 "playmidi.c"
+ STACKTOP = sp;return ($32|0); //@line 747 "playmidi.c"
+}
 function _mid_song_read_wave($0,$1,$2,$3) {
  $0 = $0|0;
  $1 = $1|0;
@@ -27476,7 +27517,7 @@ var FUNCTION_TABLE_iiiii = [b2,b2,b2,b2,b2,_stdio_istream_read,b2,_mem_istream_r
 var FUNCTION_TABLE_viii = [b3,b3,b3,b3,b3,b3,b3,b3,b3,_s32tos8,_s32tou8,_s32tos16,_s32tos16x,_s32tou16,b3,b3];
 var FUNCTION_TABLE_vi = [b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,b4,_cleanup_109,_cleanup];
 
-  return { _mid_create_options: _mid_create_options, _mid_istream_open_mem: _mid_istream_open_mem, _mid_istream_open_file: _mid_istream_open_file, _mid_song_read_wave: _mid_song_read_wave, _bitshift64Lshr: _bitshift64Lshr, _bitshift64Shl: _bitshift64Shl, _mid_exit: _mid_exit, _fflush: _fflush, _mid_song_note_on: _mid_song_note_on, _memset: _memset, _sbrk: _sbrk, _memcpy: _memcpy, _mid_song_get_num_missing_instruments: _mid_song_get_num_missing_instruments, ___uremdi3: ___uremdi3, _mid_song_get_missing_instrument: _mid_song_get_missing_instrument, _llvm_cttz_i32: _llvm_cttz_i32, _i64Subtract: _i64Subtract, _mid_istream_close: _mid_istream_close, ___udivmoddi4: ___udivmoddi4, _i64Add: _i64Add, _pthread_self: _pthread_self, _mid_song_free: _mid_song_free, _mid_init: _mid_init, _mid_song_load: _mid_song_load, _mid_song_start: _mid_song_start, ___udivdi3: ___udivdi3, ___errno_location: ___errno_location, _free: _free, _malloc: _malloc, runPostSets: runPostSets, stackAlloc: stackAlloc, stackSave: stackSave, stackRestore: stackRestore, establishStackSpace: establishStackSpace, setThrew: setThrew, setTempRet0: setTempRet0, getTempRet0: getTempRet0, dynCall_ii: dynCall_ii, dynCall_iiii: dynCall_iiii, dynCall_iiiii: dynCall_iiiii, dynCall_viii: dynCall_viii, dynCall_vi: dynCall_vi };
+  return { _mid_create_options: _mid_create_options, _memset: _memset, _mid_istream_open_file: _mid_istream_open_file, _mid_song_read_wave: _mid_song_read_wave, _bitshift64Lshr: _bitshift64Lshr, _bitshift64Shl: _bitshift64Shl, _mid_exit: _mid_exit, _fflush: _fflush, _mid_song_note_on: _mid_song_note_on, _mid_istream_open_mem: _mid_istream_open_mem, _sbrk: _sbrk, _memcpy: _memcpy, _mid_song_get_num_missing_instruments: _mid_song_get_num_missing_instruments, ___uremdi3: ___uremdi3, _mid_song_get_missing_instrument: _mid_song_get_missing_instrument, _mid_song_get_total_time: _mid_song_get_total_time, _i64Subtract: _i64Subtract, _mid_istream_close: _mid_istream_close, ___udivmoddi4: ___udivmoddi4, _i64Add: _i64Add, _pthread_self: _pthread_self, _mid_song_free: _mid_song_free, _mid_init: _mid_init, _mid_song_load: _mid_song_load, _mid_song_start: _mid_song_start, _llvm_cttz_i32: _llvm_cttz_i32, ___udivdi3: ___udivdi3, ___errno_location: ___errno_location, _free: _free, _malloc: _malloc, runPostSets: runPostSets, stackAlloc: stackAlloc, stackSave: stackSave, stackRestore: stackRestore, establishStackSpace: establishStackSpace, setThrew: setThrew, setTempRet0: setTempRet0, getTempRet0: getTempRet0, dynCall_ii: dynCall_ii, dynCall_iiii: dynCall_iiii, dynCall_iiiii: dynCall_iiiii, dynCall_viii: dynCall_viii, dynCall_vi: dynCall_vi };
 })
 // EMSCRIPTEN_END_ASM
 (Module.asmGlobalArg, Module.asmLibraryArg, buffer);
@@ -27535,12 +27576,6 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__mid_song_note_on.apply(null, arguments);
 };
 
-var real__llvm_cttz_i32 = asm["_llvm_cttz_i32"]; asm["_llvm_cttz_i32"] = function() {
-assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-return real__llvm_cttz_i32.apply(null, arguments);
-};
-
 var real__sbrk = asm["_sbrk"]; asm["_sbrk"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -27563,6 +27598,12 @@ var real__mid_song_get_missing_instrument = asm["_mid_song_get_missing_instrumen
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
 return real__mid_song_get_missing_instrument.apply(null, arguments);
+};
+
+var real__mid_song_get_total_time = asm["_mid_song_get_total_time"]; asm["_mid_song_get_total_time"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__mid_song_get_total_time.apply(null, arguments);
 };
 
 var real__i64Subtract = asm["_i64Subtract"]; asm["_i64Subtract"] = function() {
@@ -27619,6 +27660,12 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__mid_song_start.apply(null, arguments);
 };
 
+var real__llvm_cttz_i32 = asm["_llvm_cttz_i32"]; asm["_llvm_cttz_i32"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__llvm_cttz_i32.apply(null, arguments);
+};
+
 var real____udivdi3 = asm["___udivdi3"]; asm["___udivdi3"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -27651,12 +27698,13 @@ var _bitshift64Shl = Module["_bitshift64Shl"] = asm["_bitshift64Shl"];
 var _mid_exit = Module["_mid_exit"] = asm["_mid_exit"];
 var _fflush = Module["_fflush"] = asm["_fflush"];
 var _mid_song_note_on = Module["_mid_song_note_on"] = asm["_mid_song_note_on"];
-var _llvm_cttz_i32 = Module["_llvm_cttz_i32"] = asm["_llvm_cttz_i32"];
+var _memset = Module["_memset"] = asm["_memset"];
 var _sbrk = Module["_sbrk"] = asm["_sbrk"];
 var _memcpy = Module["_memcpy"] = asm["_memcpy"];
 var ___errno_location = Module["___errno_location"] = asm["___errno_location"];
 var ___uremdi3 = Module["___uremdi3"] = asm["___uremdi3"];
 var _mid_song_get_missing_instrument = Module["_mid_song_get_missing_instrument"] = asm["_mid_song_get_missing_instrument"];
+var _mid_song_get_total_time = Module["_mid_song_get_total_time"] = asm["_mid_song_get_total_time"];
 var _i64Subtract = Module["_i64Subtract"] = asm["_i64Subtract"];
 var _mid_istream_close = Module["_mid_istream_close"] = asm["_mid_istream_close"];
 var ___udivmoddi4 = Module["___udivmoddi4"] = asm["___udivmoddi4"];
@@ -27666,9 +27714,9 @@ var _mid_song_free = Module["_mid_song_free"] = asm["_mid_song_free"];
 var _mid_init = Module["_mid_init"] = asm["_mid_init"];
 var _mid_song_load = Module["_mid_song_load"] = asm["_mid_song_load"];
 var _mid_song_start = Module["_mid_song_start"] = asm["_mid_song_start"];
+var _llvm_cttz_i32 = Module["_llvm_cttz_i32"] = asm["_llvm_cttz_i32"];
 var ___udivdi3 = Module["___udivdi3"] = asm["___udivdi3"];
 var _mid_song_get_num_missing_instruments = Module["_mid_song_get_num_missing_instruments"] = asm["_mid_song_get_num_missing_instruments"];
-var _memset = Module["_memset"] = asm["_memset"];
 var _free = Module["_free"] = asm["_free"];
 var runPostSets = Module["runPostSets"] = asm["runPostSets"];
 var _malloc = Module["_malloc"] = asm["_malloc"];
@@ -27891,11 +27939,3 @@ if (Module['noInitialRun']) {
 
 
 run();
-
-// {{POST_RUN_ADDITIONS}}
-
-
-
-
-
-// {{MODULE_ADDITIONS}}
